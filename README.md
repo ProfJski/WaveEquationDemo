@@ -1,5 +1,5 @@
 # WaveEquationDemo
-An intuitive approach to the Schrodinger wave equation using a classical particle, uncertainty and quantization of velocity and/or position, and a histogram.
+An intuitive approach to introducing the Schrodinger wave equation using a classical particle, a cloud of similar particles representing uncertainty of velocity and position, and a histogram.  We generate a cloud of particles to show how a stochastic approach to quantum uncertainty yields an expectation value for the classical particle which develops in a wave-like fashion in the histogram.
 
 ## Background
 I sometimes teach physics concepts to liberal arts students.  The perspective can be rewarding.  In physics textbooks, the approach is often predominated by learning the considerable mathematics -- understandably so.  Yet one sometimes does not see the forest for the trees.  Learning the mathematical methods can detract from considering the principles which inform the mathematics.
