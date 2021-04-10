@@ -14,7 +14,7 @@ At the botton, a histogram adds up how many particles are in a given position at
 Simple modifications of the code allow one to vary how the velocity and position of the white particles are arranged around the red one.  The [C++ Random Library](https://www.cplusplus.com/reference/random/) provides a variety of random distributions: uniform linear, Gaussian, etc.  One can vary whether positions and/or velocities are quantized.
 
 ## Three views of the data
-The initial view shows what was described above: the red "classical particle" (hard to see in the reduced-size image), the white particle cloud, and the blue histogram of particle positions, all of which change with time.  
+The initial view shows what was described above: the red "classical particle" (hard to see in the reduced-size image), the white particle cloud, and the blue histogram of particle positions, all of which change with time.  Time is indicated in the upper right corner; FPS in the left.
 
 The system below randomizes position based on a continuous Gaussian distribution around the red particle and randomizes velocity using a uniform distribution quantized into 8 distinct velocities, giving 8 cohorts of bell-curve distributed particles, only one of which corresponds to the red particle.
 
@@ -32,25 +32,25 @@ You can also control the frame rate.  **Press +** increase it by 10 FPS.  **Pres
 
 ![Frame rate control](/images/WP3.gif)
 
-The frame rate for the fancy 3D histogram is unfortunately slow, so don't expect much more than 30 FPS for that view.
+**Press F** to freeze the system and again to unpause it.  The frame rate for the fancy 3D histogram is unfortunately slow, so don't expect much more than 30 FPS for that view.
 
 ## OpenCL kernels
 Two are provided.  The sinusoidal one is useful because simple harmonic motion is intuitive and a common textbook example.  The "basic" one is a starting point to craft one's own mechanics equations based on a potential field which varies according to position and determines the acceleration on the particle.  To keep the particle within our domain, the basic kernel uses force = -kx^3.  The next step would be to design various potential functions and compare their behavior to the QM equivalent situation.
 
-OpenCL helps if you want to render a large number of particles.  Since they all move independently of each other, they can be updated in parallel.  If one doesn't want OpenCL, the kernel functions can simply be replaced by C++ functions, albeit slower.
+OpenCL helps if you want to render a large number of particles.  Since they all move independently of each other, they can be updated in parallel.  If one doesn't want OpenCL, the kernel functions can simply be replaced by C++ functions, albeit with slower results.
 
 ## Varying the parameters: some examples
-Below is an unrealistic example: simple harmonic motion with 16 quantized velocities but zero uncertainty of position.  Resonances are easily seen but the histogram has very sharp peaks.  
+Below is an *unrealistic* example: simple harmonic motion with 16 quantized velocities but zero uncertainty of position.  Resonances are easily seen but the histogram has very sharp peaks.  
 
 ![Multiple quantized velocities but no uncertainty of position](/images/WP4.gif)
 
 In a quantum mechanic system the product of the uncertainty of the momemtum and position would always be greater than Planck's constant, so the uncertainty of velocity should be inversely proportional to the uncertainty of position.  Let's try something better.
 
-The simple harmonic motion system below has 32 different quantized velocities and a continuous Gaussian distribution of uncertainty of position.  The wave-like character of the histogram can still be clearly seen:
+**A better example:** the simple harmonic motion system below has 32 different quantized velocities and a continuous Gaussian distribution of uncertainty of position.  The wave-like character of the histogram can still be clearly seen:
 
 ![A better system](/images/WP5.gif)
 
-A view of its histograms over time models the "fuzzy" state of the particle: the sharp peaks are gone.  
+A view of its histograms over time models the "fuzzy" state of the particle. The sharp peaks are gone.  
 
 ![A better system: histograms](/images/WP6.gif)
 
@@ -58,5 +58,6 @@ The particle's possible position and velocity are spread out over a wider range 
 
 ![A better system: fancy histogram](/images/WP7.gif)
 
+Experiment with your own parameters.  You may find some suprising results!
 
-
+The author greatly appreciates the [Raylib graphics library](https://github.com/raysan5/raylib) for making graphical displays so easy.
