@@ -2,12 +2,12 @@
 An intuitive approach to the Schrodinger wave equation using a classical particle, uncertainty and quantization of velocity and/or position, and a histogram.
 
 ## Background
-I sometimes have occasion to teach physics concepts to liberal arts students.  The perspective can be rewarding.  Often in physics textbooks, the approach is motivated substantially by learning the considerable mathematics -- understandably so.  Yet one sometimes does not see the forest for the trees.  Learning the mathematical methods can detract from considering the principles which inform the mathematics.
+I sometimes teach physics concepts to liberal arts students.  The perspective can be rewarding.  In physics textbooks, the approach is often predominated by learning the considerable mathematics -- understandably so.  Yet one sometimes does not see the forest for the trees.  Learning the mathematical methods can detract from considering the principles which inform the mathematics.
 
-Students can struggle with the notion of the Schrodinger Wave Equation as a replacement for classical (Newtonian / Lagrangian) descriptions of the state of a system.  The inspiration for this demo came from a history of science essay (sadly I've lost the citation) which remarked that Schrodinger developed his wave equation from the schoastic mechanics of thermodynamics.  Bing!  I was surprised I hadn't heard that before.  So insighful.
+Students can struggle with the notion of the Schrodinger Wave Equation as a replacement for classical (Newtonian / Lagrangian) descriptions of the state of a system.  The inspiration for this demo came from a history of science essay (sadly I've lost the citation) which remarked that Schrodinger developed his wave equation from the schoastic mechanics of thermodynamics.  Bing!  I was surprised I hadn't heard that before in any textbook.  So insighful!
 
 ## What the Demo does
-We represent a classical particle as a small red circle.  It has a definite velocity and position throughout the demo.  Above it, we generate a host of other classical particles in white based on our red one.  The position and/or velocity of these particles varies by some random amount from the red one.  Thus we can represent uncertainty about the red particle's precise position and velocity by a "cloud" of white particles plotted above it.  Both the red and white particles move according to the same classical dynamics.
+We represent a classical particle as a small red circle.  It has a definite velocity and position throughout the demo.  Above it, we generate hundreds of other classical particles in white based on our red one.  The position and/or velocity of these particles varies by some random amount from the red one.  Thus we can represent uncertainty about the red particle's precise position and velocity by a "cloud" of white particles plotted above it.  Both the red and white particles move according to the same classical dynamics.
 
 At the botton, a histogram adds up how many particles are in a given position at a certain time.  The wave-like nature of the superposition of the classical particles can readily be seen.  Hopefully this provides an intuitive approach to the wave equation's inspiration.
 
@@ -50,8 +50,13 @@ The simple harmonic motion system below has 32 different quantized velocities an
 
 ![A better system](/images/WP5.gif)
 
-A view of its histograms over time models the "fuzzy" state of the particle: the sharp peaks are gone.  The particle's possible position and velocity are spread out over a wider range of values.  Yet the evolution of the whole system is still evident: there are moments when the expectation value of finding the particle int the middle are greater than finding it on the edges, although the latter case generally dominates.  And likewise, there are moments when the expectation value of finding the particle in a certain position are extremely low.
+A view of its histograms over time models the "fuzzy" state of the particle: the sharp peaks are gone.  
 
 ![A better system: histograms](/images/WP6.gif)
+
+The particle's possible position and velocity are spread out over a wider range of values.  Yet the evolution of the whole system is still evident: there are moments when the expectation value of finding the particle int the middle are greater than finding it on the edges, although the latter case generally dominates.  And likewise, there are moments when the expectation value of finding the particle in a certain position are extremely low.
+
+![A better system: fancy histogram](/images/WP7.gif)
+
 
 
