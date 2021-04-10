@@ -39,4 +39,19 @@ Two are provided.  The sinusoidal one is useful because simple harmonic motion i
 
 OpenCL helps if you want to render a large number of particles.  Since they all move independently of each other, they can be updated in parallel.  If one doesn't want OpenCL, the kernel functions can simply be replaced by C++ functions, albeit slower.
 
-## 
+## Varying the parameters: some examples
+Below is an unrealistic example: simple harmonic motion with 16 quantized velocities but zero uncertainty of position.  Resonances are easily seen but the histogram has very sharp peaks.  
+
+![Multiple quantized velocities but no uncertainty of position](/images/WP4.gif)
+
+In a quantum mechanic system the product of the uncertainty of the momemtum and position would always be greater than Planck's constant, so the uncertainty of velocity should be inversely proportional to the uncertainty of position.  Let's try something better.
+
+The simple harmonic motion system below has 32 different quantized velocities and a continuous Gaussian distribution of uncertainty of position.  The wave-like character of the histogram can still be clearly seen:
+
+![A better system](/images/WP5.gif)
+
+A view of its histograms over time models the "fuzzy" state of the particle: the sharp peaks are gone.  The particle's possible position and velocity are spread out over a wider range of values.  Yet the evolution of the whole system is still evident: there are moments when the expectation value of finding the particle int the middle are greater than finding it on the edges, although the latter case generally dominates.  And likewise, there are moments when the expectation value of finding the particle in a certain position are extremely low.
+
+![A better system: histograms](/images/WP6.gif)
+
+
