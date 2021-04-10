@@ -18,5 +18,16 @@ The initial view shows what was described above: the red "classical particle" (h
 
 ![Position-Time view with position histogram](/images/WP1.gif)
 
+Press H to see a multi-column chart of the position histogram as it has evolved with time.  This more compact view uses brightness of color (from dark red to bright red, then yellow and white) to represent the number of particles in one place at one time.  Every frame of the demo adds a line to this page.  If all columns are filled, additional pages can be plotted and "S" and "W" can be used to navigate between them.
 
+Press N to see a fancy 3D scrolling histogram which basically represents the same data as the previous one, but we make use of the extra dimension to represent the count of particles by height once more.  The display loops through all histogram data.
+
+![Histogram views for all times](/images/WP2.gif)
+
+Press J to return to the first view.  You can also control the frame rate.  Press "+" increase it by 10 FPS.  Press "-" to decrease.  Press "0" for no frame rate throttling (i.e., run as fast as it can).  This can be useful to evolve the system quickly and get a look at a lot of histogram data.  The frame rate for the fancy 3D histogram is unfortunately slow, so don't expect much more than 30 FPS for that view.
+
+## OpenCL kernels
+Two are provided.  The sinusoidal one is useful because simple harmonic motion is intuitive and a common textbook example.  The "basic" one is a starting point to craft one's own mechanics equations.  To keep the particle within our domain, its default force = -kx^3.
+
+OpenCL helps if you want to render a large number of particles.  Since they are all independent of each other, they can be updated in parallel.  If one doesn't have OpenCL, the kernel functions can simply be replaced by C++ functions, albeit slower.
 
