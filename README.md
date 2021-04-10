@@ -28,14 +28,14 @@ The system below randomizes position based on a continuous Gaussian distribution
 
 **Press J** to return to the first view.  
 
-You can also control the frame rate.  **Press +** increase it by 10 FPS.  **Press -** to decrease by 10.  **Press 0** for no frame rate throttling -- it runs as fast as your machine can go.  This mode evolves the system quickly and is useful to amass histogram data as below.
+You can also control the frame rate.  **Press +** increase it by 10 FPS.  **Press -** to decrease by 10.  **Press 0** for no frame rate throttling -- it runs as fast as your machine can go.  This mode evolves the system quickly and is useful to amass histogram data -- see below.
 
 ![Frame rate control](/images/WP3.gif)
 
 The frame rate for the fancy 3D histogram is unfortunately slow, so don't expect much more than 30 FPS for that view.
 
 ## OpenCL kernels
-Two are provided.  The sinusoidal one is useful because simple harmonic motion is intuitive and a common textbook example.  The "basic" one is a starting point to craft one's own mechanics equations.  To keep the particle within our domain, its default force = -kx^3.
+Two are provided.  The sinusoidal one is useful because simple harmonic motion is intuitive and a common textbook example.  The "basic" one is a starting point to craft one's own mechanics equations based on a potential field which varies according to position and determines the acceleration on the particle.  To keep the particle within our domain, the basic kernel uses force = -kx^3.  The next step would be to design various potential functions and compare their behavior to the QM equivalent situation.
 
 OpenCL helps if you want to render a large number of particles.  Since they all move independently of each other, they can be updated in parallel.  If one doesn't want OpenCL, the kernel functions can simply be replaced by C++ functions, albeit slower.
 
