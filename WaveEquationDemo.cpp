@@ -147,9 +147,10 @@ int main()
         newpart.position=(Vector3){cpos.x,0.05f*(float)i,0};
         newpart.velocity=cvel;
         newpart.velocity.x=0.5;
-        newpart.position.x+=32.0*dist1(generator);
+        //newpart.position.x+=32.0*dist1(generator);
         //newpart.velocity.x+=dist1(generator); //gaussian distribution
-        newpart.velocity.x+=1.0*floor(4.0*dist2(generator)); //quantized velocities of uniform distribution
+        newpart.position.x+=64.0*dist2(generator); //quantized velocities of uniform distribution
+        newpart.velocity.x+=0.25*floor(32.0*dist2(generator)); //quantized velocities of uniform distribution
         //newpart.velocity.x+=8.0*dist2(generator); // uniform distribution, not quantized
         //newpart.velocity.x+=0.1*floor(200*dist2(generator)); // quantized velocities of gaussian distribution
         velocities[i]=newpart.velocity.x; //Load velocity upon creation
@@ -249,10 +250,6 @@ int main()
         */
     }
 
-//Draw
-    //cout<<"Camera at: x="<<camera.position.x<<" y="<<camera.position.y<<" z="<<camera.position.z<<endl;
-    //cout<<"Target at: x="<<camera.target.x<<" y="<<camera.target.y<<" z="<<camera.target.z<<endl;
-
     if (render_histogram==false) {
             BeginDrawing();
             if (set_regular_cam) {
@@ -320,8 +317,6 @@ int main()
             plotend=plotstart+LinesPerScreen;
             plotend=(plotend>history.size())?history.size():plotend;
 
-            //cout<<"maxwdith="<<maxwidth<<" Lines Per Screen="<<LinesPerScreen<<" History size="<<history.size()<<" Plot start="<<plotstart<<" Plot end="<<plotend<<endl;
-
             BeginDrawing();
             ClearBackground(BLACK);
 
@@ -370,7 +365,6 @@ int main()
 
         //DrawGizmo((Vector3){0.0,0.0,0.0});
             for (int z=looper+0;z<looper+100;z++) {
-            //cout<<"Row z="<<z<<endl;
                 for (int x=0;x<number_of_bins;x++) {
                     pos.x=-300+2*x;
                     pos.z=2*(z-looper);
@@ -384,7 +378,6 @@ int main()
                     else {
                         DrawCube(pos,2.0,height,2.0,BLACK);
                     }
-                    //cout<<"pos.x="<<pos.x<<" pos.y="<<pos.y<<" pos.z="<<pos.z<<" height="<<height<<endl;
                 }
             }
         looper++;
